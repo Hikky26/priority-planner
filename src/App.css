@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+/* font */
+@font-face {
+  font-family: "Lugrasimo";
+  src: url("/src/fonts/Lugrasimo/Lugrasimo-Regular.ttf") format("truetype")
+}
+@font-face {
+  font-family: "Philosopher";
+  src: url("/src/fonts/Philosopher/Philosopher-Regular.ttf") format("truetype")
+}
+@font-face {
+  font-family: "LobsterTwo";
+  src: url("/src/fonts/Lobster_Two/LobsterTwo-Regular.ttf") format("truetype")
+}
+@font-face {
+  font-family: "Lugrasimo";
+  src: url("/src/fonts/Lugrasimo/Lugrasimo-Regular.ttf") format("truetype")
+}
+@font-face {
+  font-family: "Lugrasimo";
+  src: url("/src/fonts/Lugrasimo/Lugrasimo-Regular.ttf") format("truetype")
+}
+
+
+* {
+  font-family: "Lugrasimo";
+}
+
+/* header */
+.img{
+  width: 60%;
+}
+
+
+/* calendar */
+.cal{
+  width: 100%;
+}
+
+
+/*Homepage*/
+.stock-img{
+  width: 300px;
+  height: 200px;
+  border-radius: 15px;
+}
