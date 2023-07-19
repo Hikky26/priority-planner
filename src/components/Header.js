@@ -31,15 +31,16 @@ export const Header = () => {
 
 
   return (
-    <header>
+    <header  style={{ backgroundImage: `url(${getImageURL()})` }}>
       <div>Priority planner
-      <img src={getImageURL()} alt='priority-planner-logo' className='img' />
+      {/* <img src={getImageURL()} alt='priority-planner-logo' className='img' /> */}
           {/* add logic here for when user is logged it in it will display add a goal or a new planner and the logout button */}
+          <div className='block'></div>
           <nav>{ 
             authCtx.token ? (
               <ul>
                 <li>
-                  <NavLink to='/'>Home</NavLink>
+                  <NavLink to='/homepage'>Home</NavLink>
                 </li>
                 <li>
                   <NavLink to='/todo'>To Do's</NavLink>
@@ -48,7 +49,10 @@ export const Header = () => {
                   <NavLink to='/calendar'>Calendar</NavLink>
                 </li>
                 <li>
-                  <button onClick={() => authCtx.logout()}>Logout</button>
+                  <NavLink to='/planner'>View Planner</NavLink>
+                </li>
+                <li>
+                <button style={{ fontFamily: 'Philosopher',  fontSize: '14px' }} onClick={() => authCtx.logout()}>Logout</button>
                 </li>
               </ul>
             ):(

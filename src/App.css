@@ -51,22 +51,75 @@
   src: url("/src/fonts/Lobster_Two/LobsterTwo-Regular.ttf") format("truetype")
 }
 @font-face {
-  font-family: "Lugrasimo";
-  src: url("/src/fonts/Lugrasimo/Lugrasimo-Regular.ttf") format("truetype")
+  font-family: "Kalam";
+  src: url("/src/fonts/Kalam/Kalam-Regular.ttf") format("truetype")
 }
 @font-face {
-  font-family: "Lugrasimo";
-  src: url("/src/fonts/Lugrasimo/Lugrasimo-Regular.ttf") format("truetype")
+  font-family: "Handlee";
+  src: url("/src/fonts/Handlee/Handlee-Regular.ttf") format("truetype")
 }
 
 
-* {
-  font-family: "Lugrasimo";
+body {
+  font-family: "LobsterTwo";
+}
+
+/* loose tools */
+button{
+  font-size: 16px;
 }
 
 /* header */
-.img{
-  width: 60%;
+header {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 20px;
+  background-size: cover;
+  background-position: center;
+  height: 200px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px; 
+  height: 50px;
+  margin-right: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 10px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #020202;
+}
+
+nav ul li a:hover {
+  color: #070707;
+}
+
+.fc{
+  height: 480px;
+  width: 100%;
+  padding-top: 25px;
 }
 
 
@@ -77,8 +130,186 @@
 
 
 /*Homepage*/
-.stock-img{
-  width: 300px;
-  height: 200px;
-  border-radius: 15px;
-}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+  }
+
+  .display-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .box {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #201f1f; /* Color of text in the boxes */
+  }
+
+  .box:hover {
+    box-shadow: 20px 20px 8px 0 rgba(0, 0, 0, 0.4); /* Add a bigger and darker shadow on hover */
+  }
+
+  .box1 {
+    background-image: url("https://img.freepik.com/premium-vector/3d-calendar-marked-date-time-reminder-day-pink-background-calendar-with-todo-list-schedule-appointment-event-day-holiday-planning-concept-3d-alarm-icon-vector-render-illustration_412828-1329.jpg?w=996");
+  }
+
+  .box2 {
+    font-family: 'Handlee';
+    background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSx_9QlHMPD4q9bYTnp8kaxRgmrB4XNJ1F6sTws24Or-lKDoIcw");
+  }
+
+  .box3 {
+    font-family: 'Lugrasimo';
+    background-image: url("https://img.freepik.com/free-photo/golden-correct-tick-mark-sign-best-quality-assurance-with-golden-five-stars-guarantee-product-iso-service-concept-by-3d-render_616485-11.jpg?w=996&t=st=1689719772~exp=1689720372~hmac=c5190af435442b9730e3f2566ff9cafa4f1353ece071b5322e94fc1dbbc8f49d");
+  }
+
+  .box4 {
+    background-image: url("https://img.freepik.com/premium-photo/3d-speech-bubbles-text-replacement-chatting-message-box-social-media-chatting-concept-3d-render-illustration_73903-1119.jpg?w=740");
+  }
+
+  .welcome {
+    font-size: 27px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+  .insideBox{
+    height: 480px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .content {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5); 
+  }
+
+  /* Todo */
+  .todo-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px; 
+    margin: 10px auto;
+  }
+  
+  .todo-input-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .todo-input-section label {
+    flex: 0 0 120px;
+  }
+  
+  .todo-input-section input,
+  .todo-input-section textarea {
+    flex: 1; 
+  }
+
+  /* goals */
+  .goals-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 400px;
+  }
+  
+  .add-goal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 600px;
+    font-size: 12px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-button {
+    font-family: 'Lugrasimo';
+    size: 10px;
+    flex: 0 0 100px;
+    margin-left: 10px;
+    padding: 6px 0; /* Adjust padding here */
+    background-color: #bea533;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Center the form group */
+  .add-goal-form {
+    font-family: 'Lugrasimo';
+    justify-content: center;
+  }
+  
+  .goals-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .goal-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    color: #020202;
+  }
+  
+  .delete-button {
+    font-family: 'Lugrasimo';
+    font-size: 12px;
+    padding: 4px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+
+  

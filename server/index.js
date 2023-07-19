@@ -12,17 +12,17 @@ const {Calendar} = require('./tableModels/calendar.js')
 const {Goals} = require('./tableModels/goals.js')
 const {ToDo} = require('./tableModels/toDo.js')
 const {User} = require('./tableModels/users.js')
-
+const {updateAffirmationsData, getAnAffirmation} = require('./controller/affirmations.js')
 const{addUser, getUsers} = require('./controller/users.js')
 const{login} = require('./controller/users.js')
-const {makeToDo, getAllToDo, deleteToDo, makeEvent, getAllEvents, deleteEvent, makeAffirmation, getAllAffirmations, deleteAffirmation, makeGoal, getAllGoals, deleteGoal} = require('./controller/forms.js');
+const {makeToDo, getAllToDo, deleteToDo, makeEvent, getAllEvents, deleteEvent, makeGoal, getAllGoals, deleteGoal} = require('./controller/forms.js');
 const calendar = require('./tableModels/calendar.js');
-const affirmations = require('./tableModels/affirmations.js');
+const Afirmations = require('./tableModels/affirmations.js');
 const goals = require('./tableModels/goals.js');
 
-// User.hasMany(Goals);
-// User.hasMany(ToDo);
-// User.hasMany(Affirmations);
+
+User.hasMany(ToDo, { foreignKey: 'user_id' });
+ToDo.belongsTo(User, { foreignKey: 'user_id' });
 
 const app = express()
 
@@ -45,7 +45,7 @@ app.get('/users', getUsers)
 
 // todo
 app.post('/todo', makeToDo)
-app.get('/todo/:userid', getAllToDo)
+app.get('/todo', getAllToDo)
 app.delete('/todo/:id', deleteToDo)
 
 // calendar
@@ -54,13 +54,11 @@ app.get('/calendar/:userid', getAllEvents)
 app.delete('/calendar/:id', deleteEvent)
 
 // affirmations
-app.post('/affirmation', makeAffirmation)
-app.get('/affirmation/:userid', getAllAffirmations)
-app.delete('/affirmation/:id', deleteAffirmation)
-
+app.post('/update-affirmations', updateAffirmationsData)
+app.get('/affirmation/:affirmation_id', getAnAffirmation)
 // goals
 app.post('/goal', makeGoal)
-app.get('/goal/:userid', getAllGoals)
+app.get('/goal', getAllGoals)
 app.delete('/goal/:id', deleteGoal)
 
 

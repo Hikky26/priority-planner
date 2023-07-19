@@ -6,7 +6,7 @@ import Signup from './components/Signup';
 import HomePage from './components/pages/HomePage'
 import AuthContext from './components/authContext';
 import CalendarPage from './components/pages/CalendarPage'
-import ToDoPage from './components/pages/ToDoPage';
+import ToDoForm from './components/forms/ToDoForm';
 
 
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
@@ -21,7 +21,6 @@ function App() {
   return (
     <div className='app'>
         <Header/>
-          WELCOME!
         <Routes>
           <Route path='/' element={<HomePage/>} />
           <Route path='/form' element={authCtx.token ? <HomePage/> : <Navigate to='/login'/>}/>
@@ -29,7 +28,7 @@ function App() {
           <Route path='/signup' element={<Signup/>} />
           <Route path='/homepage' element={authCtx.token ? <HomePage/> : <Navigate to='/login'/>}/>
           <Route path='/calendar' element={authCtx.token ? <CalendarPage/> : <Navigate to='/login'/>}/>
-          <Route path='/todo' element={authCtx.token ? <ToDoPage/> : <Navigate to='/login'/>}/>
+          <Route path='/todo' element={authCtx.token ? <ToDoForm/> : <Navigate to='/login'/>}/>
           <Route path='/planner' element={authCtx.token ? <PlannerPage/> : <Navigate to='/login'/>}/>
         </Routes>
         {showCalendarUI && <div className='cal'><CalendarUI /></div>}

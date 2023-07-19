@@ -10,7 +10,10 @@ module.exports = {
             allowNull: false,
             primaryKey: true
         },
-        user_id: DataTypes.INTEGER,
+        author: DataTypes.STRING,
         affirmation: DataTypes.TEXT,
-    })
+    },{
+        timestamps: false
+    }
+    )
 }

@@ -4,7 +4,7 @@ const {sequelize} = require('../controller/databaseController')
 
 module.exports = {
     Goals : sequelize.define('goals', {
-        id: {
+        goal_id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             allowNull: false,

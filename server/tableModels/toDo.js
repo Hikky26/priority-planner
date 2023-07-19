@@ -11,7 +11,7 @@ module.exports = {
             primaryKey: true
         },
         title: DataTypes.STRING,
-        user_id: DataTypes.TEXT,
+        user_id: DataTypes.INTEGER,
         category: DataTypes.STRING,
         date_start: DataTypes.DATE,
         date_due: DataTypes.DATE,

@@ -5,8 +5,8 @@ import React, {useState, useEffect} from 'react'
 const ToDoPage = () => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
-  const [dateStart, setDateStart] = useState('');
-  const [dateDue, setDateDue] = useState('');
+  const [date_start, setDateStart] = useState('');
+  const [date_due, setDateDue] = useState('');
   const [details, setDetails] = useState('');
   const [user_id, setUserID] = useState('')
 
@@ -14,14 +14,14 @@ const ToDoPage = () => {
   
   useEffect(() => {
     const storedUserID = localStorage.getItem('user_id');
+    console.log(storedUserID)
     setUserID(storedUserID)
   }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // Validate mandatory fields before submitting
-    if (!title|| !category || !dateStart) {
+    if (!title|| !category || !date_start) {
       alert('Please fill in all mandatory fields.');
       return;
     }
@@ -29,8 +29,8 @@ const ToDoPage = () => {
     const body = {
       title,
       category,
-      dateStart,
-      dateDue,
+      date_start,
+      date_due,
       details,
       user_id
     }
@@ -50,10 +50,10 @@ const ToDoPage = () => {
     }
       
   return (
-    <div>
+    <div className='todo-input-container'>
       <h2>Add a To Do or a Task:</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className='todo-input-section'>
           <label>Title:</label>
           <input
             type="text"
@@ -62,7 +62,7 @@ const ToDoPage = () => {
             required
           />
         </div>
-        <div>
+        <div className='todo-input-section'>
           <label>Category:</label>
           <input
             type="text"
@@ -71,24 +71,24 @@ const ToDoPage = () => {
             required
           />
         </div>
-        <div>
+        <div className='todo-input-section'>
           <label>Start Date:</label>
           <input
             type="date"
-            value={dateStart}
+            value={date_start}
             onChange={(e) => setDateStart(e.target.value)}
             required
           />
         </div>
-        <div>
+        <div className='todo-input-section'>
           <label>End Date:</label>
           <input
             type="date"
-            value={dateDue}
+            value={date_due}
             onChange={(e) => setDateDue(e.target.value)}
           />
         </div>
-        <div>
+        <div className='todo-input-section'>
           <label>Details:</label>
           <textarea
             value={details}
