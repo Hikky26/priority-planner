@@ -27,9 +27,11 @@ const ToDo = () => {
         data = res.data;
         console.log(data);
         const userTodos = data.filter((todo) => todo.user_id === user_id);
+        console.log(userTodos)
         userTodos.sort((a, b) => new Date(a.dateDue) - new Date(b.dateDue));
-        const top5ToDos = userTodos.slice(0, 5);
-        setTop5ToDos(top5ToDos);
+        // const top5ToDos = userTodos.slice(0, 5);
+        setTop5ToDos(userTodos);
+        console.log(top5ToDos)
         setLoading(false); 
       })
       .catch((err) => {
@@ -48,14 +50,28 @@ const ToDo = () => {
           <h1>Top To-Dos</h1>
           <ul>
             {top5ToDos.map((todo) => (
-              <li key={todo.todo_id}>
-                <strong>Title:</strong> {todo.title}<br />
-                <strong>Category:</strong> {todo.category}<br />
-                <strong>Date Due:</strong> {todo.dateDue}<br />
-                <strong>Details:</strong> {todo.details}<br />
-                <strong>Completed:</strong> {todo.completed ? 'Yes' : 'No'}<br />
-                <br />
-                <br />
+              <li className='todo-item' key={todo.todo_id}>
+                <div class="todo-title">{todo.title}</div>
+                <div class="todo-details">
+                  <table>
+                    <tr>
+                      <td><strong>Category:</strong></td>
+                      <td>{todo.category}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Date Due:</strong></td>
+                      <td>{todo.dateDue}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Details:</strong></td>
+                      <td>{todo.details}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Completed:</strong></td>
+                      <td>{todo.completed ? 'Yes' : 'No'}</td>
+                    </tr>
+                  </table>
+                </div>
               </li>
             ))}
           </ul>

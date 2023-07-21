@@ -3,19 +3,19 @@ import React, {useState, useEffect} from 'react'
 
 const AffirmationForm = () => {
     const [affirmation, setAffirmation] = useState('');
+    const [data, setData] = useState({})
 
     const randID = Math.floor(Math.random() * 1646)
 
     const url = 'http://localhost:4656'
 
-    let data
-      
+   
     const handleSubmit = (e) => {
         e.preventDefault();
 
         axios.get(`${url}/affirmation/${randID}`)
             .then(res => {
-                data = res.data
+                setData(res.data)
                 setAffirmation(data)
                 console.log(affirmation)
             })
@@ -24,22 +24,16 @@ const AffirmationForm = () => {
     }
 
     return (
-        <div>   
-            <h1>
-                Motivational Affirmations
-            </h1>
-            <button className='get-affirmation' onClick={handleSubmit}>
-                Click to Get Motivated
-            </button>
-            <h1>
-                {data.affirmation}
-            </h1>
-            <h2>
-                {data.author}
-            </h2>
-        </div>
-        // need to make the thing here
-    )
-    }
-
+            <div className="A-container">
+                <h1 className="title">Motivational Affirmations</h1>
+            <div className="affirmation-container">
+                <h1 className="affirmation">{data.affirmation}</h1>
+                <h2 className="author">- {data.author}</h2>
+            </div>
+                <button className='get-affirmation' onClick={handleSubmit}>
+                    Click to Get Motivated
+                </button>
+            </div>
+        );
+        };
     export default AffirmationForm

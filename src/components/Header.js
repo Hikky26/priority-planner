@@ -32,10 +32,13 @@ export const Header = () => {
 
   return (
     <header  style={{ backgroundImage: `url(${getImageURL()})` }}>
-      <div>Priority planner
+      <div >
+        <h1 className="header-left">
+          Priority planner
+        </h1>
       {/* <img src={getImageURL()} alt='priority-planner-logo' className='img' /> */}
           {/* add logic here for when user is logged it in it will display add a goal or a new planner and the logout button */}
-          <div className='block'></div>
+          <div className="header-right">
           <nav>{ 
             authCtx.token ? (
               <ul>
@@ -45,14 +48,11 @@ export const Header = () => {
                 <li>
                   <NavLink to='/todo'>To Do's</NavLink>
                 </li>
-                <li>
-                  <NavLink to='/calendar'>Calendar</NavLink>
-                </li>
-                <li>
+                {/* <li>
                   <NavLink to='/planner'>View Planner</NavLink>
-                </li>
+                </li> */}
                 <li>
-                <button style={{ fontFamily: 'Philosopher',  fontSize: '14px' }} onClick={() => authCtx.logout()}>Logout</button>
+                <button style={{ fontFamily: 'Philosopher',  fontSize: '14px', padding:'5px', backgroundColor: 'red', borderRadius:'8px' }} onClick={() => authCtx.logout()}>Logout</button>
                 </li>
               </ul>
             ):(
@@ -69,6 +69,7 @@ export const Header = () => {
               </ul>
             )}
             </nav>
+          </div>
       </div>
       
     </header>

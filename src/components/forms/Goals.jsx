@@ -48,33 +48,32 @@ const Goals = () => {
         setGoalsList([...goalsList, goal]);
         setGoal('');
 
-        const body = {
-            goal,
-            user_id
-        }
+        // const body = {
+        //     goal,
+        //     user_id
+        // }
 
-        axios
-        .post(`${url}/goal`, body)
-        .then(() => {
-            updateGoals();
-            console.log(goalsList)
-        })
-        .catch(err => {
-          console.log(err);
-        })
-        setGoal('')
+        // axios
+        // .post(`${url}/goal`, body)
+        // .then(() => {
+        //     updateGoals();
+        //     console.log(goalsList)
+        // })
+        // .catch(err => {
+        //   console.log(err);
+        // })
+        // setGoal('')
     };
 
-    const handleDeleteGoal = (goalId) => {
-        // Remove the goal from the database using axios.delete
-        axios.delete(`${url}/goals/${goalId}`)
-          .then(() => {
-            // Fetch updated data after successfully deleting the goal
-            updateGoals();
-          })
-          .catch(err => {
-            console.log(err);
-          });
+    const handleDeleteGoal = (goal) => {
+        // axios.delete(`${url}/goals/${goalId}`)
+        //   .then(() => {
+        //     updateGoals();
+        //   })
+        //   .catch(err => {
+        //     console.log(err);
+        //   });
+        setGoalsList( (goalsList) => goalsList.filter( (currentGoal) => currentGoal != goal ))
       };
     
     return (
@@ -94,8 +93,8 @@ const Goals = () => {
         <ul className="goals-list">
             {goalsList.map((goalItem, index) => (
             <li key={index} className="goal-item">
-                <span>{goalItem.goal}</span>
-                <button onClick={() => handleDeleteGoal(goalItem.goal_id)} className="delete-button">Delete</button>
+                <span>{goalItem}</span>
+                <button onClick={() => handleDeleteGoal(goalItem)} className="delete-button">Delete</button>
             </li>
             ))}
         </ul>

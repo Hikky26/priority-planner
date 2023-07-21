@@ -34,19 +34,24 @@ module.exports = {
         }
     }, 
 
-    deleteToDo: async (req, res) => {}, 
-    makeEvent: async (req, res) => {}, 
-    getAllEvents: async (req, res) => {}, 
-    deleteEvent: async (req, res) => {}, 
-    makeAffirmation: async (req, res) => {}, 
-    getAllAffirmations: async (req, res) => {}, 
-    deleteAffirmation: async (req, res) => {}, 
     makeGoal: async (req, res) => {
-         
+        try{
+            const {goal, user_id} = req.body
+            console.log(goal, user_id)
+            // await Goals.create({ user_id, goal})
+
+            await Goals.create({user_id: user_id, goal: goal},
+                {timestamps:false,
+                    createdAt: false,
+                    updatedAt: false,})
+            res.sendStatus(200)
+        }catch(err) {
+            console.log(err)
+            res.sendStatus(400)
+        }
     }, 
     getAllGoals: async (req, res) => {
         try {
-            const {user_id, goal} = req.body
             const goals = await Goals.findAll({
                 include: [{
                     model: User,
@@ -57,10 +62,21 @@ module.exports = {
             })
             res.status(200).send(goals)
         } catch (error) {
-            console.log('ERROR IN getAllPosts')
+            console.log('ERROR')
             console.log(error)
             res.sendStatus(400)
         }
     }, 
-    deleteGoal: async (req, res) => {}
+    deleteGoal: async (req, res) => {
+        try{
+            const goal_id = req.params.goalId
+            const deletedGoal = await Goals.destroy({ where: { goal_id } });
+            if (deletedGoal === 0) {
+            return res.status(404).send('Goal not found.');
+            }
+            res.send('deleted');
+        } catch (error) {
+            console.error('Error deleting goal:', error);
+        }
+    }
 }

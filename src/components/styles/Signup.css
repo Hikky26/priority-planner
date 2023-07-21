@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "Lugrasimo";
+    src: url("/src/fonts/Lugrasimo/Lugrasimo-Regular.ttf") format("truetype")
+}
+
+*{
+    font-family: 'Lugrasimo';
+}
+.signup-container {
+    background-color: #05031f;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .signup-card {
+    background: linear-gradient(135deg, #e6e6e6 30%, #c0c0c0 70%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .signup-card h1 {
+    margin-bottom: 20px;
+  }
+  
+  .signup-card input {
+    width: 40%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .signup-card button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4d86c4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }

@@ -12,5 +12,7 @@ module.exports = {
         },
         user_id: DataTypes.INTEGER,
         goal: DataTypes.TEXT,
+    },{
+        timestamps:false,
     })
 }

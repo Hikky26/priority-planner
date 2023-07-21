@@ -6581,11 +6581,12 @@ module.exports ={
         try {
             for (const affirmationData of affirmationsdata) {
               const { text, author } = affirmationData;
+              console.log(text, author)
               await Affirmations.create(
                 { author: author, affirmation: text },
                 {timestamps:false,
                     createdAt: false,
-                    updatedAt: false,}
+                    updatedAt: false}
               );
             }
             console.log('Affirmations data updated successfully!');
@@ -6597,7 +6598,7 @@ module.exports ={
   },
   getAnAffirmation: async(req, res) => {
     try{
-      const affirmation_Id = req.params;
+      const affirmation_Id = req.params.affirmation_id;
       console.log(affirmation_Id)
       const affirmation = await Affirmations.findOne({
         where: { affirmation_id: affirmation_Id }

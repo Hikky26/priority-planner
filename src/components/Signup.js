@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from './authContext';
+import './styles/Signup.css'
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -60,43 +61,48 @@ const Signup = () => {
 
 
   return (
-    <div>
-      <h1>
-        New member? Sign up here:
-      </h1>
-      <form onSubmit={handleSubmit}>
-      <input
-          type="firstName"
-          placeholder="FirstName"
-          value={first_name}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          type="lastName"
-          placeholder="LastName"
-          value={last_name}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="email@email.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="username"
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Signup</button>
-      </form>
+    <div className="signup-container">
+      <div className="signup-card">
+        <h1>New member? Sign up here:</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="First Name"
+            value={first_name}
+            onChange={(e) => setFirstName(e.target.value)}
+            className="input-field"
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            value={last_name}
+            onChange={(e) => setLastName(e.target.value)}
+            className="input-field"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="input-field"
+          />
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="input-field"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="input-field"
+          />
+          <button type="submit" className="submit-button">Signup</button>
+        </form>
+      </div>
     </div>
   );
 };

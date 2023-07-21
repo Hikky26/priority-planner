@@ -18,11 +18,11 @@ module.exports = {
     seed: (req, res) => {
         sequelize.query(`
             
-            DROP TABLE IF EXISTS all_users;
-            DROP TABLE IF EXISTS calendar;
-            DROP TABLE IF EXISTS todos;
-            DROP TABLE IF EXISTS affirmations;
-            DROP TABLE IF EXISTS goals;
+        DROP TABLE IF EXISTS calendar;
+        DROP TABLE IF EXISTS todos;
+        DROP TABLE IF EXISTS affirmations;
+        DROP TABLE IF EXISTS goals;
+        DROP TABLE IF EXISTS all_users;
 
             -- Create tables
             CREATE TABLE all_users (
@@ -56,7 +56,7 @@ module.exports = {
 
             CREATE TABLE affirmations (
                 affirmation_id SERIAL PRIMARY KEY,
-                user_id INTEGER REFERENCES all_users(user_id),
+                author VARCHAR,
                 affirmation TEXT
             );
 
@@ -82,10 +82,10 @@ module.exports = {
                 (1, 1, 'Meeting', 'Work'),
                 (2, 2, 'Appointment', 'Personal');
 
-            INSERT INTO affirmations (user_id, affirmation)
+            INSERT INTO affirmations (author, affirmation)
             VALUES
-                (1, 'I am capable of achieving my goals.'),
-                (2, 'I am grateful for the opportunities in my life.');
+                ('Me', 'I am capable of achieving my goals.'),
+                ('You', 'I am grateful for the opportunities in my life.');
 
             INSERT INTO goals (user_id, goal)
             VALUES
