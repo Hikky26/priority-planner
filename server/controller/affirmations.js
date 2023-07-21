@@ -6585,8 +6585,8 @@ module.exports ={
               await Affirmations.create(
                 { author: author, affirmation: text },
                 {timestamps:false,
-                    createdAt: false,
-                    updatedAt: false}
+                  createdAt: false,
+                  updatedAt: false}
               );
             }
             console.log('Affirmations data updated successfully!');
